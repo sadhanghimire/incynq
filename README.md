@@ -11,4 +11,3 @@ pip install -r requirements.txt
 ## How to run it
 Make sure you are in app sub directory. Then run the following command:
 uvicorn main:app --reload
-
