@@ -3,7 +3,10 @@ from pydantic import BaseModel
 import smtplib
 import ssl
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
 import os
+
+load_dotenv(override=True)
 
 app = FastAPI()
 
@@ -19,9 +22,10 @@ def calculate_score(opportunity: Opportunity) -> int:
 
 def send_email(opportunity: Opportunity):
     port = 465
-    sender = ""
-    receiver = ""
+    sender = os.environ.get("EMAIL_SENDER")
+    receiver = os.environ.get("EMAIL_RECEIVER")
     password = os.environ.get("EMAIL_PASSWORD")
+    
     subject = f"Promising Opportunity: {opportunity.name}"
     msg = MIMEText(f"The opportunity '{opportunity.name}' looks promising.")
     msg['Subject'] = subject
