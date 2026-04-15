@@ -19,8 +19,8 @@ def calculate_score(opportunity: Opportunity) -> int:
 
 def send_email(opportunity: Opportunity):
     port = 465
-    sender = "sg2222@msstate.edu"
-    receiver = "sg2222@msstate.edu"
+    sender = ""
+    receiver = ""
     password = os.environ.get("EMAIL_PASSWORD")
     subject = f"Promising Opportunity: {opportunity.name}"
     msg = MIMEText(f"The opportunity '{opportunity.name}' looks promising.")
